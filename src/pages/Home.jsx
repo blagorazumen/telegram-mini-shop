@@ -80,7 +80,7 @@ function Home() {
               <div className="product-footer">
                 <span className="product-price">{product.price / 100} ₽</span>
                 <button 
-                  className="btn-add-to-cart"
+                  className="btn-add"
                   onClick={() => addItem(product)}
                 >
                   + В корзину
