@@ -43,7 +43,7 @@ function Home() {
   return (
     <div className="page home">
       <header className="header">
-        <h1>🛒 ABSIT SHOP</h1>
+        <h1>   ABSIT SHOP</h1>
         <Link to="/cart" className="cart-link">🛒 Корзина</Link>
       </header>
 
