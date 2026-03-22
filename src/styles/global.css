@@ -12,10 +12,21 @@
   box-sizing: border-box;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  padding: 16px;
+  background: linear-gradient(rgba(10, 10, 20, 0.7), rgba(20, 10, 30, 0.7)), 
+              url('https://haaiczsovirvukjanwez.supabase.co/storage/v1/object/sign/background/Picsart_26-03-23_00-13-18-657.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9kYTFkN2JmZi1hNGYxLTQ3N2EtYjFiNC01ODQ2NmM1NWRkNDEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJiYWNrZ3JvdW5kL1BpY3NhcnRfMjYtMDMtMjNfMDAtMTMtMTgtNjU3LmpwZyIsImlhdCI6MTc3NDIwNzU3NSwiZXhwIjoxODA1NzQzNTc1fQ.jGZ98_N3XrEFKsuC7Lk_vf1wOILLQxt1Fe_TXi9tP2U') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  min-height: 100vh;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --button-color: #ff006e;
+  --button-text-color: #ffffff;
+  --hint-color: #b8b8d1;
+  --text-color: #ffffff;
 }
 
 .page {
