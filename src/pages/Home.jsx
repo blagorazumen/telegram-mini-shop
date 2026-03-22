@@ -52,7 +52,7 @@ function Home() {
           className={`category-btn ${!selectedCategory ? 'active' : ''}`}
           onClick={() => setSelectedCategory(null)}
         >
-          📦 Все
+          Все
         </button>
         {categories.map(cat => (
           <button
@@ -93,7 +93,7 @@ function Home() {
 
       {products.length === 0 && (
         <div className="empty-state">
-          <p>😔 Товаров пока нет</p>
+          <p> Товаров пока нет</p>
         </div>
       )}
     </div>  )
