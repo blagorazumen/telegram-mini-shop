@@ -15,10 +15,15 @@ function Home() {
   }, [selectedCategory])
 
   async function loadData() {
+  try {
     // Загружаем категории
-    const { data: cats } = await supabase
+    const { data: cats, error: catsError } = await supabase
       .from('categories')
       .select('*')
+    
+    if (catsError) {
+      console.error('Ошибка категорий:', catsError)
+    }
     
     setCategories(cats || [])
 
@@ -31,9 +36,19 @@ function Home() {
       query = query.eq('category_id', selectedCategory)
     }
 
-    const { data } = await query
+    const { data, error: productsError } = await query
+    
+    if (productsError) {
+      console.error('Ошибка товаров:', productsError)
+    }
+    
+    console.log('Товары:', data)
+    console.log('Категории:', cats)
 
     setProducts(data || [])
+    setLoading(false)
+  } catch (err) {
+    console.error('Ошибка загрузки:', err)
     setLoading(false)
   }
 
