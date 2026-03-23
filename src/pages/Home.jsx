@@ -26,7 +26,6 @@ function Home() {
     let query = supabase
       .from('products')
       .select('*')
-      .eq('is_active', true)
 
     if (selectedCategory) {
       query = query.eq('category_id', selectedCategory)
