@@ -16,7 +16,6 @@ function Home() {
 
   async function loadData() {
     try {
-      // Загружаем категории
       const { data: cats, error: catsError } = await supabase
         .from('categories')
         .select('*')
@@ -27,7 +26,6 @@ function Home() {
       
       setCategories(cats || [])
 
-      // Загружаем товары
       let query = supabase
         .from('products')
         .select('*')
@@ -49,8 +47,7 @@ function Home() {
       setLoading(false)
     } catch (err) {
       console.error('Ошибка загрузки:', err)
-      setLoading(false)
-    }
+      setLoading(false)    }
   }
 
   if (loading) return <div className="loading">Загрузка...</div>
@@ -62,7 +59,6 @@ function Home() {
         <Link to="/cart" className="cart-link">🛒 Корзина</Link>
       </header>
 
-      {/* Фильтр по категориям */}
       <div className="categories-filter">
         <button
           className={`category-btn ${!selectedCategory ? 'active' : ''}`}
@@ -81,7 +77,6 @@ function Home() {
         ))}
       </div>
 
-      {/* Сетка товаров */}
       <div className="products-grid">
         {products.map(product => (
           <div key={product.id} className="product-card">
@@ -92,4 +87,27 @@ function Home() {
             />
             <div className="product-info">
               <h3>{product.name}</h3>
-              <p className="product-desc">{product
+              <p className="product-desc">{product.description}</p>
+              <div className="product-footer">
+                <span className="product-price">{product.price / 100} ₽</span>
+                <button
+                  className="btn-add"
+                  onClick={() => addItem(product)}
+                >
+                  + В корзину
+                </button>
+              </div>            </div>
+          </div>
+        ))}
+      </div>
+
+      {products.length === 0 && (
+        <div className="empty-state">
+          <p>Товаров пока нет</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default Home
